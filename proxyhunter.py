@@ -138,7 +138,7 @@ if __name__ == '__main__':
     for net in netlist:
         ip = net.lstrip().strip('\n')
         try:
-            scan("192.223.24.0/24")
+            scan(ip)
         except KeyboardInterrupt:
             print("\nExiting..")
             sys.exit(0)
