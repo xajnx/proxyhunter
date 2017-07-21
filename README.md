@@ -1,13 +1,13 @@
-**SquidHunter v1**\
+**ProxyHunter v1**\
 aaron.nelson805@gmail.com\
-https://github.com/xajnx/squidhunter
+https://github.com/xajnx/proxyhunter
 
 Due to the website that was used to parse proxy servers for the proxyupdate script.
 it was necessary to re-write a more reliable script to obtain available servers.
 
-SquidHunter v1 is a CLI python3 script that  uses the `ip_ranges_US.txt` list of US ip-ranges to search out
+ProxyHunter v1 is a CLI python3 script that  uses the `ip_ranges_US.txt` list of US ip-ranges to search out
 Squid proxy servers. To use IP ranges for other countries visit: http://www.ipaddresslocation.org/ip_ranges/get_ranges.php and select your
-country and select *CIDR* format from the drop-down menus and then download to your `squidhunter` directory.
+country and select *CIDR* format from the drop-down menus and then download to your `proxyhunter` directory.
 
 Because this script does the searching instead of relying on other data it will take some 
 time to search out open servers. It finds servers by pulling 2500 random ip-ranges from the
@@ -43,36 +43,35 @@ MACSpoof\
 *(MACSpoof how-to can be found here: https://github.com/feross/SpoofMAC)*
 
 **USAGE**:
-**`python3 squidhunter.py`**
-or to use the MACSpoof feature: **`sudo python3 squidhunter.py`**
+**`python3 proxyhunter.py`**
+or to use the MACSpoof feature: **`sudo python3 proxyhunter.py`**
 
 Result:
 
-skywalker@endor:~/scripts/python/proxyupdate$ python3 squidhunter.py\
+skywalker@endor:~/scripts/python/proxyhunter$ python3 proxyhunter.py\
 _-=-__-=-__-=-__-=-__-=-_\
-    Squid Hunter v1\
+    Proxy Hunter v1\
 _-=-__-=-__-=-__-=-__-=-_
 
 Would you like to spoof your MAC address?(y/n):n\
+
 Initializing scanner..\
 Please wait this may take some time.\
-Initializing scanner..
-Please wait this may take some time.
-104.236.27.0/24: 256 available IPs
-Checking host: 104.236.27.2
-104.236.27.2:80 is OPEN
-no proxy
-Checking host: 104.236.27.6
-104.236.27.6:80 is OPEN
-Service: Squid
-104.236.27.6:81 is OPEN
-no proxy
-104.236.27.6:3128 is OPEN
-Service: Squid
-104.236.27.6:8080 is OPEN
-Service: Squid
-Checking host: 104.236.27.7
-104.236.27.7:80 is OPEN
+104.236.27.0/24: 256 available IPs\
+Checking host: 104.236.27.2\
+104.236.27.2:80 is OPEN\
+no proxy\
+Checking host: 104.236.27.6\
+104.236.27.6:80 is OPEN\
+Service: Socks\
+104.236.27.6:81 is OPEN\
+no proxy\
+104.236.27.6:3128 is OPEN\
+Service: Socks\
+104.236.27.6:8080 is OPEN\
+Service: Squid\
+Checking host: 104.236.27.7\
+104.236.27.7:80 is OPEN\
 
 
 
