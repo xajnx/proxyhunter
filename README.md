@@ -48,7 +48,7 @@ or to use the MACSpoof feature: **`sudo python3 proxyhunter.py`**
 
 Result:
 
-`skywalker@endor:~/scripts/python/proxyhunter$ python3 proxyhunter.py\
+skywalker@endor:~/scripts/python/proxyhunter$ python3 proxyhunter.py\
 _-=-__-=-__-=-__-=-__-=-_\
     Proxy Hunter v1\
 _-=-__-=-__-=-__-=-__-=-_
@@ -75,7 +75,7 @@ Service: Squid\
 Saving..
 Checking host: 104.236.27.7\
 104.236.27.7:80 is OPEN\
-....`
+....
 
 
 

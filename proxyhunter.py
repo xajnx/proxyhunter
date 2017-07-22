@@ -31,8 +31,8 @@ def target(ip):
     pports = [80, 81, 83, 88, 3128, 3129, 3654, 4444, 5800, 6588, 6666,
               6800, 7004, 8080, 8081, 8082, 8083, 8088, 8118, 8123, 8888,
               9000, 8084, 8085, 9999, 53281]
-    pcount = 0
     scount = 0
+    pcount = 0
     for port in pports:
         # Attempt to connect to socket
         s = socket(AF_INET, SOCK_STREAM)
@@ -45,7 +45,7 @@ def target(ip):
             # Check for SQUID service
             message = bytes("GET / HTTP/1.1\r\n\r\n", 'utf-8')
             s.sendall(message)
-            s.settimeout(0.5)
+            s.settimeout(0.05)
             try:
                 reply = s.recv(100)
                 data = reply.decode(encoding='utf-8')
@@ -78,25 +78,27 @@ def target(ip):
                             pass
                     except Exception as e:
                         print(str(e))
-
             except (NameError, AttributeError):
                 print("{}No proxy{} - skipping..\n".format(red, reset), flush=True)
                 sys.stdout.flush()
+
         else:
             pass
         s.close()
-    scount += 1
+        scount += 1
+    print("{}Host Count: {}{}{}".format(bold, yellow, scount, reset), end="\r", flush=True)
     sys.stdout.flush()
 
     if scount < 25:
         pass
 
     elif scount == 25:
-        print("Found {}{}{} available proxy servers.".format(green, pcount, reset))
-        end = time.clock()
-        print("Scan took approximately {}{}{}{} seconds".format(bold, blue, (round(end - start),2), reset))
-        if pcount == 0:
-           print("No available servers fouund. Please re-run the script to search again")
+        if pcount == 25:
+            print("Found {}{}{} available proxy servers.".format(green, pcount, reset))
+            end = time.clock()
+            print("Scan took approximately {}{}{}{} seconds".format(bold, blue, (round(end - start),2), reset))
+        elif pcount == 0:
+           print("No available servers found. Please re-run the script to search again")
         print("Proxy servers have been saved to {}{}\'proxy.lst\'{}".format(bold, green, reset ))
         sys.exit(0)
 
