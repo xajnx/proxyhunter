@@ -34,16 +34,18 @@ def scan(network):
         print("Scanning: [{}{}{}{}]".format(bold, yellow, host, reset), end="\r", flush=True)
         target(host)
         hcount += 1
+        sys.stdout.flush()
            
         if len(proxy_list) == 25:
             with open(pfile, 'a+') as pf:
                 for proxy in proxy_list:
                     pf.write(proxy)    
             print("Proxies have been saved to {}{}\'proxy.lst\'{}".format(bold, yellow, reset))
-            # end = time.clock()
-            # timer = end - start
-            # minutes = round(timer/60, 2)
-            # print("Time elapsed: [{}{}{}{}] minutes".format(bold, blue, minutes, reset))
+            end = time.clock()
+            elapsed = end - start
+            from datetime import timedelta
+            total_time = str(timedelta(hours=elapsed))
+            print("Time elapsed: {}{}{}{}".format(bold, green, total_time, reset))
             print("Scanned {}{}{}{} hosts".format(bold, yellow, hcount, reset), end="\r", flush=True)
             sys.exit(0)
 
