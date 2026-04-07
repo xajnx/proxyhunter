@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Proxy server checker for proxyscan.py"""
+"""Proxy server checker for ProxyHunter."""
 
 import requests
 
@@ -31,9 +31,7 @@ def is_prox(proxy_server):
             r = requests.get(test_site, headers=headers, proxies=proxies, timeout=3)
             if r.status_code == 200:
                 return proxy_type
-        except Exception as e:
-            # Uncomment for debugging:
-            # print(f"Proxy type {proxy_type} failed: {e}")
+        except requests.RequestException:
             continue
     return None
 

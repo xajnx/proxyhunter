@@ -1,0 +1,4 @@
+colorama
+netaddr
+requests
+pysocks
