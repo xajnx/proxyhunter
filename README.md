@@ -77,5 +77,8 @@ Checking host: 104.236.27.7\
 104.236.27.7:80 is OPEN\
 ....
 
+## Support
+If you find this program useful please consider a donation to support development
+ - CashApp: $therealajnelson
 
 
